@@ -1,0 +1,50 @@
+.item-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(91, 108, 255, 0.15);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #5B6CFF 0%, #4A5FE8 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #4A5FE8 0%, #3947D1 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(91, 108, 255, 0.3);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #2ED3B7 0%, #26BCA7 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #26BCA7 0%, #1FA597 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(46, 211, 183, 0.3);
+}
+
+.tab-active {
+    background: linear-gradient(135deg, #5B6CFF 0%, #4A5FE8 100%);
+    color: white;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

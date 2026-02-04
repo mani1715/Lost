@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-02-04T14:02:24.180893",
+  "total_tests": 8,
+  "passed_tests": 8,
+  "success_rate": "100.0%",
+  "results": [
+    {
+      "test": "API Root",
+      "success": true,
+      "details": "Status: 200, Response: {\"message\":\"Lost & Found API\"}"
+    },
+    {
+      "test": "GET Lost Items",
+      "success": true,
+      "details": "Status: 200, Items count: 5"
+    },
+    {
+      "test": "GET Found Items",
+      "success": true,
+      "details": "Status: 200, Items count: 5"
+    },
+    {
+      "test": "POST Lost Item",
+      "success": true,
+      "details": "Item ID: c1e85027-59f4-45c2-8a4a-7631b7f03a01"
+    },
+    {
+      "test": "GET Item by ID",
+      "success": true,
+      "details": "Status: 200, Item retrieved successfully"
+    },
+    {
+      "test": "DELETE Item",
+      "success": true,
+      "details": "Status: 200, Item deleted successfully"
+    },
+    {
+      "test": "POST Found Item",
+      "success": true,
+      "details": "Item ID: 8048f5aa-e70f-40b9-beec-02eea10254c4"
+    },
+    {
+      "test": "POST Item Without Image",
+      "success": true,
+      "details": "Item ID: bf84b6b6-a97c-4430-a591-3f46dd94dbe3"
+    }
+  ]
+}
