@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "timestamp": "2026-02-04T14:02:24.180893",
+=======
+  "timestamp": "2026-02-04T13:43:14.359535",
+>>>>>>> cd94dd2ba5c303155281cbacfa1c37a814e49a72
   "total_tests": 8,
   "passed_tests": 8,
   "success_rate": "100.0%",
@@ -12,17 +16,29 @@
     {
       "test": "GET Lost Items",
       "success": true,
+<<<<<<< HEAD
       "details": "Status: 200, Items count: 5"
+=======
+      "details": "Status: 200, Items count: 0"
+>>>>>>> cd94dd2ba5c303155281cbacfa1c37a814e49a72
     },
     {
       "test": "GET Found Items",
       "success": true,
+<<<<<<< HEAD
       "details": "Status: 200, Items count: 5"
+=======
+      "details": "Status: 200, Items count: 0"
+>>>>>>> cd94dd2ba5c303155281cbacfa1c37a814e49a72
     },
     {
       "test": "POST Lost Item",
       "success": true,
+<<<<<<< HEAD
       "details": "Item ID: c1e85027-59f4-45c2-8a4a-7631b7f03a01"
+=======
+      "details": "Item ID: de4f9515-82fd-4aca-bb61-d46d4eefee42"
+>>>>>>> cd94dd2ba5c303155281cbacfa1c37a814e49a72
     },
     {
       "test": "GET Item by ID",
@@ -37,12 +53,20 @@
     {
       "test": "POST Found Item",
       "success": true,
+<<<<<<< HEAD
       "details": "Item ID: 8048f5aa-e70f-40b9-beec-02eea10254c4"
+=======
+      "details": "Item ID: 901d7ad2-9531-4310-b890-7fe530ae7652"
+>>>>>>> cd94dd2ba5c303155281cbacfa1c37a814e49a72
     },
     {
       "test": "POST Item Without Image",
       "success": true,
+<<<<<<< HEAD
       "details": "Item ID: bf84b6b6-a97c-4430-a591-3f46dd94dbe3"
+=======
+      "details": "Item ID: 643346b8-6264-42fd-810c-47347e5b6b69"
+>>>>>>> cd94dd2ba5c303155281cbacfa1c37a814e49a72
     }
   ]
 }
