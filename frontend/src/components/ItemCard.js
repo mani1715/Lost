@@ -13,7 +13,7 @@ const ItemCard = ({ item, onClick }) => {
 
   return (
     <Card 
-      className="item-card cursor-pointer overflow-hidden border-none shadow-sm hover:shadow-lg"
+      className="item-card cursor-pointer overflow-hidden border-none shadow-sm hover:shadow-lg bg-white"
       onClick={() => onClick(item)}
       data-testid={`item-card-${item.id}`}
     >
