@@ -21,7 +21,7 @@ const ItemDetailModal = ({ item, isOpen, onClose, onDelete }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto" data-testid="item-detail-modal">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-white" data-testid="item-detail-modal">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-gray-900" data-testid="modal-title">
             {item.title}
