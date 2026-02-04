@@ -64,13 +64,13 @@ const ItemForm = ({ type, onSuccess, onCancel }) => {
   };
 
   return (
-    <Card className="border-none shadow-lg">
+    <Card className="border-none shadow-lg bg-white">
       <CardHeader className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-t-lg">
         <CardTitle className="text-2xl" data-testid="form-title">
           Report {type === 'lost' ? 'Lost' : 'Found'} Item
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-6">
+      <CardContent className="p-6 bg-white">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <Label htmlFor="title">Item Title *</Label>
