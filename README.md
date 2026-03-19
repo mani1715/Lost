@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 RENT EASE – Smart Rental Marketplace
 
 **RENTEASE** is a modern web-based rental marketplace that connects property owners and customers on a single platform.
@@ -189,3 +190,6 @@ RENTEASE bridges the gap between property owners and tenants by providing a mode
 # rent-6
 # rent-6
 # rent-6
+=======
+# Here are your Instructions
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc

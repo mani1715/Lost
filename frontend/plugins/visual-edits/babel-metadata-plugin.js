@@ -114,6 +114,7 @@ function isPortalishName(name, RADIX_ROOTS) {
   return RADIX_ROOTS.has(name) || PORTAL_SUFFIX_RE.test(name);
 }
 
+<<<<<<< HEAD
 const isStaticLiteralExpression = (expr, t) =>
   t.isStringLiteral(expr) ||
   t.isNumericLiteral(expr) ||
@@ -174,6 +175,8 @@ const wrapDynamicExpressionChildren = (jsxPath, t) => {
   }
 };
 
+=======
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
 // Analyze a specific exported component in a file
 function fileExportHasPortals({
   absPath,
@@ -273,6 +276,7 @@ function fileExportHasPortals({
 
   let found = false;
 
+<<<<<<< HEAD
   // Track visited paths to prevent infinite recursion with circular component dependencies
   const visitedPaths = new WeakSet();
 
@@ -281,6 +285,9 @@ function fileExportHasPortals({
     if (visitedPaths.has(nodePath.node)) return false;
     visitedPaths.add(nodePath.node);
 
+=======
+  function subtreeHasPortals(nodePath) {
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
     let hit = false;
     nodePath.traverse({
       JSXOpeningElement(op) {
@@ -676,7 +683,11 @@ const babelMetadataPlugin = ({ types: t }) => {
   /**
    * Analyzes a member expression like item.name or obj.prop.value
    */
+<<<<<<< HEAD
   function analyzeMemberExpression(exprPath, state, options = {}) {
+=======
+  function analyzeMemberExpression(exprPath, state) {
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
     const node = exprPath.node;
 
     // Build the property path (e.g., "name" or "address.city")
@@ -694,10 +705,14 @@ const babelMetadataPlugin = ({ types: t }) => {
       const rootName = rootObj.name;
 
       // Check if we're inside an array iteration (like .map())
+<<<<<<< HEAD
       // Skip if we're already analyzing the array source to prevent infinite recursion
       const arrayContext = options.skipArrayContext
         ? null
         : getArrayIterationContext(exprPath, state);
+=======
+      const arrayContext = getArrayIterationContext(exprPath, state);
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
 
       if (arrayContext && arrayContext.itemParam === rootName) {
         // This is item.property where item comes from array.map(item => ...)
@@ -715,8 +730,12 @@ const babelMetadataPlugin = ({ types: t }) => {
       }
 
       // Analyze the root identifier
+<<<<<<< HEAD
       // Pass skipArrayContext to avoid infinite recursion when called from getArrayIterationContext
       const rootInfo = analyzeIdentifier(rootName, exprPath, state, options);
+=======
+      const rootInfo = analyzeIdentifier(rootName, exprPath, state);
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
       if (rootInfo) {
         return {
           ...rootInfo,
@@ -1043,8 +1062,12 @@ const babelMetadataPlugin = ({ types: t }) => {
       // Handle cases like data.items.map(...)
       const memberInfo = analyzeMemberExpression(
         callExprParent.get("callee.object"),
+<<<<<<< HEAD
         state,
         { skipArrayContext: true }
+=======
+        state
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
       );
       if (memberInfo) {
         arrayVar = memberInfo.varName;
@@ -1513,10 +1536,13 @@ const babelMetadataPlugin = ({ types: t }) => {
       return DYNAMIC_COMP_CACHE.get(cacheKey);
     }
 
+<<<<<<< HEAD
     // Set sentinel value to prevent infinite recursion with circular imports
     // This will be updated with the actual result at the end
     DYNAMIC_COMP_CACHE.set(cacheKey, false);
 
+=======
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
     const ast = parseFileAst(absPath, parser);
     if (!ast) {
       DYNAMIC_COMP_CACHE.set(cacheKey, false);
@@ -1715,6 +1741,7 @@ const babelMetadataPlugin = ({ types: t }) => {
         if (!elementName) return;
 
         // Only process capitalized components (React components)
+<<<<<<< HEAD
         if (!/^[A-Z]/.test(elementName)) {
           if (hasProp(openingElement, "data-ve-dynamic") || hasProp(openingElement, "x-excluded")) {
             return;
@@ -1722,6 +1749,9 @@ const babelMetadataPlugin = ({ types: t }) => {
           wrapDynamicExpressionChildren(jsxPath, t);
           return;
         }
+=======
+        if (!/^[A-Z]/.test(elementName)) return;
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
 
         // Exclude components that have strict child requirements or break when wrapped
         const excludedComponents = new Set([

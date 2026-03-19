@@ -1,16 +1,26 @@
+<<<<<<< HEAD
+=======
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
     margin: 0;
+<<<<<<< HEAD
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
         "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
         sans-serif;
+=======
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
 code {
     font-family:
         source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -125,6 +135,34 @@ code {
         --text-primary: #f1f5f9;
         --text-secondary: #94a3b8;
         --border-color: hsl(222 30% 25%);
+=======
+h1, h2, h3 {
+    font-family: 'Manrope', sans-serif;
+}
+
+@layer base {
+    :root {
+        --background: 245 246 255;
+        --foreground: 31 41 55;
+        --card: 255 255 255;
+        --card-foreground: 31 41 55;
+        --popover: 255 255 255;
+        --popover-foreground: 31 41 55;
+        --primary: 91 108 255;
+        --primary-foreground: 255 255 255;
+        --secondary: 46 211 183;
+        --secondary-foreground: 255 255 255;
+        --muted: 243 244 246;
+        --muted-foreground: 107 114 128;
+        --accent: 245 246 255;
+        --accent-foreground: 91 108 255;
+        --destructive: 239 68 68;
+        --destructive-foreground: 255 255 255;
+        --border: 229 231 235;
+        --input: 229 231 235;
+        --ring: 91 108 255;
+        --radius: 0.5rem;
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
     }
 }
 
@@ -134,6 +172,7 @@ code {
     }
     body {
         @apply bg-background text-foreground;
+<<<<<<< HEAD
         line-height: 1.6;
         letter-spacing: -0.01em;
     }
@@ -203,3 +242,7 @@ code {
         border-bottom-color: inherit;
     }
 }
+=======
+    }
+}
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc

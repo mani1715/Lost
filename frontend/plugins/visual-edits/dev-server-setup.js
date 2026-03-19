@@ -703,8 +703,12 @@ function setupDevServer(config) {
                   });
                 } else if (
                   change.type === "textContent" &&
+<<<<<<< HEAD
                   (Array.isArray(change.textParts) ||
                     change.textContent !== undefined)
+=======
+                  change.textContent !== undefined
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
                 ) {
                   console.log(
                     `[backend] Processing textContent change:`,
@@ -716,6 +720,7 @@ function setupDevServer(config) {
                     const jsxElementNode = parentElementPath.node;
                     const children = jsxElementNode.children || [];
 
+<<<<<<< HEAD
                     const textParts = Array.isArray(change.textParts)
                       ? change.textParts
                       : null;
@@ -820,6 +825,58 @@ function setupDevServer(config) {
                         newData: newContent,
                       });
                     }
+=======
+                    let targetTextNode = null;
+                    for (const child of children) {
+                      if (t.isJSXText(child) && child.value.trim().length > 0) {
+                        targetTextNode = child;
+                        break;
+                      }
+                    }
+
+                    const firstTextNode = targetTextNode;
+                    const fallbackWhitespaceNode = children.find(
+                      (child) => t.isJSXText(child) && child.value.trim().length === 0,
+                    );
+
+                    const newContent = change.textContent;
+                    let oldContent = "";
+
+                    const preserveWhitespace = (originalValue, updatedCore) => {
+                      const leadingWhitespace =
+                        (originalValue.match(/^\s*/) || [""])[0];
+                      const trailingWhitespace =
+                        (originalValue.match(/\s*$/) || [""])[0];
+                      return `${leadingWhitespace}${updatedCore}${trailingWhitespace}`;
+                    };
+
+                    if (firstTextNode) {
+                      oldContent = firstTextNode.value.trim();
+                      firstTextNode.value = preserveWhitespace(
+                        firstTextNode.value,
+                        newContent,
+                      );
+                    } else if (fallbackWhitespaceNode) {
+                      oldContent = "";
+                      fallbackWhitespaceNode.value = preserveWhitespace(
+                        fallbackWhitespaceNode.value,
+                        newContent,
+                      );
+                    } else {
+                      oldContent = "";
+                      const newTextNode = t.jsxText(newContent);
+                      jsxElementNode.children = [newTextNode, ...children];
+                    }
+
+                    edits.push({
+                      file: getRelativePath(targetFile),
+                      lineNumber: lineNumber,
+                      element: elementName,
+                      type: "textContent",
+                      oldData: oldContent,
+                      newData: newContent,
+                    });
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
                   }
                 } else if (
                   change.type === "content" &&

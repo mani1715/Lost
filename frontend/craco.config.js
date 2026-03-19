@@ -9,7 +9,11 @@ const isDevServer = process.env.NODE_ENV !== "production";
 // Environment variable overrides
 const config = {
   enableHealthCheck: process.env.ENABLE_HEALTH_CHECK === "true",
+<<<<<<< HEAD
   enableVisualEdits: false, // Disabled to avoid babel plugin issues
+=======
+  enableVisualEdits: isDevServer, // Only enable during dev server
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
 };
 
 // Conditionally load visual edits modules only in dev mode
@@ -78,9 +82,12 @@ if (config.enableVisualEdits && babelMetadataPlugin) {
 }
 
 webpackConfig.devServer = (devServerConfig) => {
+<<<<<<< HEAD
   // Allow all hosts for cloud preview environment
   devServerConfig.allowedHosts = 'all';
   
+=======
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
   // Apply visual edits dev server setup only if enabled
   if (config.enableVisualEdits && setupDevServer) {
     devServerConfig = setupDevServer(devServerConfig);

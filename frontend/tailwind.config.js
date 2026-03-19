@@ -10,6 +10,7 @@ module.exports = {
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
+<<<<<<< HEAD
   			sm: 'calc(var(--radius) - 4px)',
   			xl: '1rem',
   			'2xl': '1.25rem'
@@ -21,6 +22,9 @@ module.exports = {
   		},
   		fontFamily: {
   			sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+=======
+  			sm: 'calc(var(--radius) - 4px)'
+>>>>>>> e17768b1f796c0c35dcd889004bc97173ab086fc
   		},
   		colors: {
   			background: 'hsl(var(--background))',
