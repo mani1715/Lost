@@ -58,10 +58,10 @@ const RoleSelectionPage = () => {
   // Show loading state while auth is being checked
   if (authLoading) {
     return (
-      <div className="min-h-screen bg-[#FAF8F5] flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#E07A5F] mx-auto"></div>
-          <p className="mt-4 text-[#64748b]">Loading...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary mx-auto"></div>
+          <p className="mt-4 text-muted-foreground">Loading...</p>
         </div>
       </div>
     );
@@ -73,20 +73,20 @@ const RoleSelectionPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-background flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl w-full">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-[#1a2744] mb-2" data-testid="role-selection-title">
+          <h2 className="text-3xl font-extrabold text-foreground mb-2" data-testid="role-selection-title">
             How would you like to use RentEase?
           </h2>
-          <p className="text-[#64748b]">
+          <p className="text-muted-foreground">
             {user?.name ? `Welcome ${user.name}! ` : ''}Select your role to continue. You can switch roles anytime from your profile.
           </p>
         </div>
 
         {error && (
-          <div className="mb-6 rounded-lg bg-red-50 border border-red-200 p-4">
-            <p className="text-sm text-red-600 font-medium" data-testid="role-error">{error}</p>
+          <div className="mb-6 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4">
+            <p className="text-sm text-red-600 dark:text-red-400 font-medium" data-testid="role-error">{error}</p>
           </div>
         )}
 
@@ -97,46 +97,46 @@ const RoleSelectionPage = () => {
             data-testid="role-owner-btn"
             className={`p-8 rounded-xl border-2 transition-all text-left ${
               selectedRole === 'OWNER'
-                ? 'border-[#E07A5F] bg-[#FEF2F0] shadow-lg transform scale-[1.02]'
-                : 'border-[#e5e2de] bg-white hover:border-[#E07A5F]/50 hover:shadow-md'
+                ? 'border-secondary bg-secondary/10 shadow-lg transform scale-[1.02]'
+                : 'border-border bg-card hover:border-secondary/50 hover:shadow-md'
             }`}
           >
             <div className="flex items-start space-x-4">
               <div
                 className={`p-4 rounded-xl ${
-                  selectedRole === 'OWNER' ? 'bg-gradient-to-br from-[#E07A5F] to-[#D4A574] text-white' : 'bg-[#f5f3f0] text-[#64748b]'
+                  selectedRole === 'OWNER' ? 'bg-gradient-to-br from-secondary to-accent text-white' : 'bg-muted text-muted-foreground'
                 }`}
               >
                 <Building2 className="h-10 w-10" />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold text-[#1a2744] mb-2">Property Owner</h3>
-                <p className="text-[#64748b] mb-4">
+                <h3 className="text-2xl font-bold text-foreground mb-2">Property Owner</h3>
+                <p className="text-muted-foreground mb-4">
                   List your properties for rent and manage bookings
                 </p>
-                <ul className="space-y-2 text-sm text-[#64748b]">
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
-                    <span className="mr-2 text-[#E07A5F]">✓</span>
+                    <span className="mr-2 text-secondary">✓</span>
                     Add and manage listings
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2 text-[#E07A5F]">✓</span>
+                    <span className="mr-2 text-secondary">✓</span>
                     Set your own prices
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2 text-[#E07A5F]">✓</span>
+                    <span className="mr-2 text-secondary">✓</span>
                     Chat with potential renters
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2 text-[#E07A5F]">✓</span>
+                    <span className="mr-2 text-secondary">✓</span>
                     Track property performance
                   </li>
                 </ul>
               </div>
             </div>
             {selectedRole === 'OWNER' && (
-              <div className="mt-4 flex items-center text-[#E07A5F] font-medium text-sm">
-                <span className="bg-[#E07A5F] text-white rounded-full p-1 mr-2">
+              <div className="mt-4 flex items-center text-secondary font-medium text-sm">
+                <span className="bg-secondary text-white rounded-full p-1 mr-2">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
@@ -152,46 +152,46 @@ const RoleSelectionPage = () => {
             data-testid="role-customer-btn"
             className={`p-8 rounded-xl border-2 transition-all text-left ${
               selectedRole === 'CUSTOMER'
-                ? 'border-[#1a2744] bg-[#f0f3f7] shadow-lg transform scale-[1.02]'
-                : 'border-[#e5e2de] bg-white hover:border-[#1a2744]/50 hover:shadow-md'
+                ? 'border-primary bg-primary/10 shadow-lg transform scale-[1.02]'
+                : 'border-border bg-card hover:border-primary/50 hover:shadow-md'
             }`}
           >
             <div className="flex items-start space-x-4">
               <div
                 className={`p-4 rounded-xl ${
-                  selectedRole === 'CUSTOMER' ? 'bg-gradient-to-br from-[#1a2744] to-[#243b5e] text-white' : 'bg-[#f5f3f0] text-[#64748b]'
+                  selectedRole === 'CUSTOMER' ? 'bg-gradient-to-br from-primary to-primary/80 text-white' : 'bg-muted text-muted-foreground'
                 }`}
               >
                 <User className="h-10 w-10" />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-bold text-[#1a2744] mb-2">Customer</h3>
-                <p className="text-[#64748b] mb-4">
+                <h3 className="text-2xl font-bold text-foreground mb-2">Customer</h3>
+                <p className="text-muted-foreground mb-4">
                   Find and rent properties that match your needs
                 </p>
-                <ul className="space-y-2 text-sm text-[#64748b]">
+                <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
-                    <span className="mr-2 text-[#1a2744]">✓</span>
+                    <span className="mr-2 text-primary dark:text-secondary">✓</span>
                     Browse available properties
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2 text-[#1a2744]">✓</span>
+                    <span className="mr-2 text-primary dark:text-secondary">✓</span>
                     Save favorites
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2 text-[#1a2744]">✓</span>
+                    <span className="mr-2 text-primary dark:text-secondary">✓</span>
                     Contact property owners
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2 text-[#1a2744]">✓</span>
+                    <span className="mr-2 text-primary dark:text-secondary">✓</span>
                     Leave reviews and ratings
                   </li>
                 </ul>
               </div>
             </div>
             {selectedRole === 'CUSTOMER' && (
-              <div className="mt-4 flex items-center text-[#1a2744] font-medium text-sm">
-                <span className="bg-[#1a2744] text-white rounded-full p-1 mr-2">
+              <div className="mt-4 flex items-center text-primary dark:text-secondary font-medium text-sm">
+                <span className="bg-primary dark:bg-secondary text-white rounded-full p-1 mr-2">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
@@ -207,7 +207,7 @@ const RoleSelectionPage = () => {
             onClick={handleRoleSelect}
             disabled={!selectedRole || loading}
             data-testid="role-continue-btn"
-            className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-semibold rounded-xl text-white bg-gradient-to-r from-[#E07A5F] to-[#D4A574] hover:from-[#d16a50] hover:to-[#c49565] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E07A5F] disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all"
+            className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-semibold rounded-xl text-white bg-gradient-to-r from-secondary to-accent hover:from-[#d16a50] hover:to-[#c49565] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transition-all"
           >
             {loading ? (
               <>
@@ -224,7 +224,7 @@ const RoleSelectionPage = () => {
               </>
             )}
           </button>
-          <p className="mt-4 text-sm text-[#94a3b8]">
+          <p className="mt-4 text-sm text-muted-foreground">
             You can switch between Owner and Customer anytime from settings
           </p>
         </div>

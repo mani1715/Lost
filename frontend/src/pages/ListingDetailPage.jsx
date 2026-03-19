@@ -172,10 +172,10 @@ export default function ListingDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary mx-auto"></div>
+          <p className="mt-4 text-muted-foreground">Loading...</p>
         </div>
       </div>
     );
@@ -183,8 +183,8 @@ export default function ListingDetailPage() {
 
   if (!listing) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <p className="text-xl text-gray-600">Property not found</p>
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <p className="text-xl text-muted-foreground">Property not found</p>
       </div>
     );
   }
@@ -193,15 +193,15 @@ export default function ListingDetailPage() {
   const badgeColor = typeColors[listing.type] || '#1F2937';
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex items-center justify-between mb-6">
-          <Button variant="ghost" onClick={() => navigate(-1)}>
+          <Button variant="ghost" onClick={() => navigate(-1)} className="text-foreground">
             <ArrowLeft className="h-5 w-5 mr-2" />
             Back to Listings
           </Button>
           <div className="flex gap-2">
-            <Button variant="outline" size="icon" onClick={handleShare}>
+            <Button variant="outline" size="icon" onClick={handleShare} className="border-border">
               <Share2 className="h-5 w-5" />
             </Button>
             {isAuthenticated && (
@@ -209,6 +209,7 @@ export default function ListingDetailPage() {
                 variant="outline"
                 size="icon"
                 onClick={handleFavorite}
+                className="border-border"
                 style={{ color: favorite ? '#EF4444' : undefined }}
               >
                 <Heart className={`h-5 w-5 ${favorite ? 'fill-current' : ''}`} />
@@ -226,14 +227,14 @@ export default function ListingDetailPage() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Title and Basic Info */}
-            <Card>
+            <Card className="bg-card">
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                    <h1 className="text-3xl font-bold text-foreground mb-2">
                       {listing.title}
                     </h1>
-                    <div className="flex items-center text-gray-600 mb-2">
+                    <div className="flex items-center text-muted-foreground mb-2">
                       <MapPin className="h-5 w-5 mr-2" />
                       <span>{listing.addressText}</span>
                     </div>
@@ -243,7 +244,7 @@ export default function ListingDetailPage() {
                   </Badge>
                 </div>
 
-                <div className="flex items-center gap-6 text-gray-700 mb-4">
+                <div className="flex items-center gap-6 text-muted-foreground mb-4">
                   <div className="flex items-center">
                     <Bed className="h-5 w-5 mr-2" />
                     <span>{listing.bedrooms} Bed</span>
@@ -258,7 +259,7 @@ export default function ListingDetailPage() {
                   </div>
                 </div>
 
-                <div className="text-3xl font-bold" style={{ color: '#2563EB' }}>
+                <div className="text-3xl font-bold text-secondary">
                   ₹ {listing.price.toLocaleString('en-IN')} / month
                 </div>
               </CardContent>
@@ -266,23 +267,23 @@ export default function ListingDetailPage() {
 
             {/* Description */}
             {listing.description && (
-              <Card>
+              <Card className="bg-card">
                 <CardContent className="pt-6">
-                  <h2 className="text-xl font-bold text-gray-900 mb-4">Description</h2>
-                  <p className="text-gray-700 whitespace-pre-line">{listing.description}</p>
+                  <h2 className="text-xl font-bold text-foreground mb-4">Description</h2>
+                  <p className="text-muted-foreground whitespace-pre-line">{listing.description}</p>
                 </CardContent>
               </Card>
             )}
 
             {/* Facilities */}
             {listing.facilities && listing.facilities.length > 0 && (
-              <Card>
+              <Card className="bg-card">
                 <CardContent className="pt-6">
-                  <h2 className="text-xl font-bold text-gray-900 mb-4">Amenities & Features</h2>
+                  <h2 className="text-xl font-bold text-foreground mb-4">Amenities & Features</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {listing.facilities.map((facility, index) => (
-                      <div key={index} className="flex items-center text-gray-700">
-                        <CheckCircle2 className="h-5 w-5 mr-2" style={{ color: '#10B981' }} />
+                      <div key={index} className="flex items-center text-muted-foreground">
+                        <CheckCircle2 className="h-5 w-5 mr-2 text-green-500" />
                         <span>{facility}</span>
                       </div>
                     ))}
@@ -292,24 +293,23 @@ export default function ListingDetailPage() {
             )}
 
             {/* Location & Navigation */}
-            <Card>
+            <Card className="bg-card">
               <CardContent className="pt-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <h2 className="text-xl font-bold text-foreground mb-4 flex items-center">
                   <MapPin className="mr-2 h-5 w-5" />
                   Location
                 </h2>
-                <p className="text-gray-700 mb-4">{listing.addressText}</p>
+                <p className="text-muted-foreground mb-4">{listing.addressText}</p>
                 {(listing.latitude && listing.longitude) && (
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                    <p className="text-sm text-blue-900 mb-2">
+                  <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-4">
+                    <p className="text-sm text-blue-900 dark:text-blue-100 mb-2">
                       <strong>Coordinates:</strong> {listing.latitude}, {listing.longitude}
                     </p>
                   </div>
                 )}
                 <Button
                   onClick={handleOpenInMaps}
-                  className="w-full"
-                  style={{ backgroundColor: '#2563EB' }}
+                  className="w-full bg-secondary hover:bg-secondary/90"
                 >
                   <Navigation className="mr-2 h-5 w-5" />
                   Open in Google Maps
@@ -331,18 +331,18 @@ export default function ListingDetailPage() {
           <div className="space-y-6">
             {/* Owner Info */}
             {listing.ownerId && (
-              <Card>
+              <Card className="bg-card">
                 <CardContent className="pt-6">
-                  <h3 className="font-bold text-gray-900 mb-4">Owner Information</h3>
+                  <h3 className="font-bold text-foreground mb-4">Owner Information</h3>
                   <div className="flex items-center mb-4">
-                    <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center">
-                      <User className="h-6 w-6 text-blue-600" />
+                    <div className="h-12 w-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                      <User className="h-6 w-6 text-secondary" />
                     </div>
                     <div className="ml-3">
-                      <p className="font-medium text-gray-900">
+                      <p className="font-medium text-foreground">
                         {listing.ownerId.name || 'Property Owner'}
                       </p>
-                      <p className="text-sm text-gray-600">{listing.ownerId.email}</p>
+                      <p className="text-sm text-muted-foreground">{listing.ownerId.email}</p>
                     </div>
                   </div>
                   <Button
@@ -358,8 +358,7 @@ export default function ListingDetailPage() {
                   {isAuthenticated && user?.role === 'CUSTOMER' && (
                     <div className="mt-3">
                       <Button
-                        className="w-full"
-                        style={{ backgroundColor: '#2563EB' }}
+                        className="w-full bg-secondary hover:bg-secondary/90"
                         onClick={handleRequestBooking}
                         disabled={bookingLoading}
                       >
@@ -380,19 +379,19 @@ export default function ListingDetailPage() {
             )}
 
             {/* Property Status */}
-            <Card>
+            <Card className="bg-card">
               <CardContent className="pt-6">
-                <h3 className="font-bold text-gray-900 mb-4">Property Status</h3>
+                <h3 className="font-bold text-foreground mb-4">Property Status</h3>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Status</span>
+                    <span className="text-muted-foreground">Status</span>
                     <Badge style={{ backgroundColor: '#10B981', color: 'white' }}>
                       {listing.status || 'Available'}
                     </Badge>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Listed</span>
-                    <span className="font-medium">
+                    <span className="text-muted-foreground">Listed</span>
+                    <span className="font-medium text-foreground">
                       {new Date(listing.createdAt).toLocaleDateString()}
                     </span>
                   </div>
